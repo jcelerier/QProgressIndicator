@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QColor>
 
-/*! 
+/*!
     \class QProgressIndicator
-    \brief The QProgressIndicator class lets an application display a progress indicator to show that a lengthy task is under way. 
+    \brief The QProgressIndicator class lets an application display a progress indicator to show that a lengthy task is under way.
 
     Progress indicators are indeterminate and do nothing more than spin to show that the application is busy.
     \sa QProgressBar
@@ -43,8 +43,8 @@ public:
       */
     const QColor & color() const { return m_color; }
 
-    virtual QSize sizeHint() const;
-    int heightForWidth(int w) const;
+    QSize sizeHint() const override;
+    int heightForWidth(int w) const override;
 public slots:
     /*! Starts the spin animation.
         \sa stopAnimation isAnimated
@@ -58,12 +58,12 @@ public slots:
 
     /*! Sets the delay between animation steps.
         Setting the \a delay to a value larger than 40 slows the animation, while setting the \a delay to a smaller value speeds it up.
-        \param delay The delay, in milliseconds. 
-        \sa animationDelay 
+        \param delay The delay, in milliseconds.
+        \sa animationDelay
      */
     void setAnimationDelay(int delay);
 
-    /*! Sets whether the component hides itself when it is not animating. 
+    /*! Sets whether the component hides itself when it is not animating.
        \param state The animation state. Set false to hide the progress indicator when it is not animating; otherwise true.
        \sa isDisplayedWhenStopped
      */
@@ -74,8 +74,8 @@ public slots:
      */
     void setColor(const QColor & color);
 protected:
-    virtual void timerEvent(QTimerEvent * event); 
-    virtual void paintEvent(QPaintEvent * event);
+    void timerEvent(QTimerEvent * event) override;
+    void paintEvent(QPaintEvent * event) override;
 private:
     int m_angle;
     int m_timerId;
