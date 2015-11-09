@@ -3,7 +3,7 @@ project(QProgressIndicator)
 
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 
-add_library(QProgressIndicator "${CMAKE_CURRENT_SOURCE_DIR}/QProgressIndicator.cpp")
+add_library(QProgressIndicator STATIC "${CMAKE_CURRENT_SOURCE_DIR}/QProgressIndicator.cpp")
 
 set_property(TARGET QProgressIndicator APPEND
              PROPERTY INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}")
