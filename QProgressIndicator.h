@@ -45,7 +45,7 @@ public:
 
     QSize sizeHint() const override;
     int heightForWidth(int w) const override;
-public slots:
+public Q_SLOTS:
     /*! Starts the spin animation.
         \sa stopAnimation isAnimated
      */
