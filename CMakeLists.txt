@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(QProgressIndicator LANGUAGES CXX)
+set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 
