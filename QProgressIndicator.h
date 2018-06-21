@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QColor>
-
+#include <wobjectdefs.h>
 /*!
     \class QProgressIndicator
     \brief The QProgressIndicator class lets an application display a progress indicator to show that a lengthy task is under way.
@@ -13,10 +13,7 @@
 */
 class QProgressIndicator : public QWidget
 {
-    Q_OBJECT
-    Q_PROPERTY(int delay READ animationDelay WRITE setAnimationDelay)
-    Q_PROPERTY(bool displayedWhenStopped READ isDisplayedWhenStopped WRITE setDisplayedWhenStopped)
-    Q_PROPERTY(QColor color READ color WRITE setColor)
+    W_OBJECT(QProgressIndicator)
 public:
     QProgressIndicator(QWidget* parent = nullptr);
 
@@ -72,7 +69,11 @@ public Q_SLOTS:
     /*! Sets the color of the components to the given color.
         \sa color
      */
-    void setColor(const QColor & color);
+    void setColor(const QColor & color); W_SLOT(startAnimation);
+
+    W_PROPERTY(int, delay READ animationDelay WRITE setAnimationDelay)
+    W_PROPERTY(bool, displayedWhenStopped READ isDisplayedWhenStopped WRITE setDisplayedWhenStopped)
+    W_PROPERTY(QColor, color READ color WRITE setColor)
 protected:
     void timerEvent(QTimerEvent * event) override;
     void paintEvent(QPaintEvent * event) override;

@@ -1,4 +1,6 @@
 #include "QProgressIndicator.h"
+#include <wobjectimpl.h>
+W_OBJECT_IMPL(QProgressIndicator)
 
 #include <QPainter>
 
@@ -90,10 +92,10 @@ void QProgressIndicator::paintEvent(QPaintEvent * /*event*/)
         return;
 
     int width = qMin(this->width(), this->height());
-    
+
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
-    
+
     int outerRadius = (width-1)*0.5;
     int innerRadius = (width-1)*0.5*0.38;
 
@@ -106,7 +108,7 @@ void QProgressIndicator::paintEvent(QPaintEvent * /*event*/)
         QColor color = m_color;
         color.setAlphaF(1.0f - (i/12.0f));
         p.setPen(Qt::NoPen);
-        p.setBrush(color);       
+        p.setBrush(color);
         p.save();
         p.translate(rect().center());
         p.rotate(m_angle - i*30.0f);
