@@ -11,7 +11,7 @@
     Progress indicators are indeterminate and do nothing more than spin to show that the application is busy.
     \sa QProgressBar
 */
-class QProgressIndicator : public QWidget
+class Q_DECL_EXPORT QProgressIndicator : public QWidget
 {
     W_OBJECT(QProgressIndicator)
 public:
@@ -42,34 +42,34 @@ public:
 
     QSize sizeHint() const override;
     int heightForWidth(int w) const override;
-public Q_SLOTS:
+public:
     /*! Starts the spin animation.
         \sa stopAnimation isAnimated
      */
-    void startAnimation();
+    void startAnimation(); W_SLOT(startAnimation)
 
     /*! Stops the spin animation.
         \sa startAnimation isAnimated
      */
-    void stopAnimation();
+    void stopAnimation(); W_SLOT(stopAnimation)
 
     /*! Sets the delay between animation steps.
         Setting the \a delay to a value larger than 40 slows the animation, while setting the \a delay to a smaller value speeds it up.
         \param delay The delay, in milliseconds.
         \sa animationDelay
      */
-    void setAnimationDelay(int delay);
+    void setAnimationDelay(int delay); W_SLOT(setAnimationDelay)
 
     /*! Sets whether the component hides itself when it is not animating.
        \param state The animation state. Set false to hide the progress indicator when it is not animating; otherwise true.
        \sa isDisplayedWhenStopped
      */
-    void setDisplayedWhenStopped(bool state);
+    void setDisplayedWhenStopped(bool state); W_SLOT(setDisplayedWhenStopped)
 
     /*! Sets the color of the components to the given color.
         \sa color
      */
-    void setColor(const QColor & color); W_SLOT(startAnimation);
+    void setColor(const QColor & color); W_SLOT(setColor);
 
     W_PROPERTY(int, delay READ animationDelay WRITE setAnimationDelay)
     W_PROPERTY(bool, displayedWhenStopped READ isDisplayedWhenStopped WRITE setDisplayedWhenStopped)
@@ -81,8 +81,8 @@ private:
     int m_angle;
     int m_timerId;
     int m_delay;
-    bool m_displayedWhenStopped;
     QColor m_color;
+    bool m_displayedWhenStopped;
 };
 
 #endif // QPROGRESSINDICATOR_H
