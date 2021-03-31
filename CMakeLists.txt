@@ -10,4 +10,4 @@ set_property(TARGET QProgressIndicator APPEND
              PROPERTY INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}")
 set_property(TARGET QProgressIndicator PROPERTY CXX_STANDARD 14)
 
-target_link_libraries(QProgressIndicator Qt5::Core Qt5::Widgets)
+target_link_libraries(QProgressIndicator ${QT_PREFIX}::Core ${QT_PREFIX}::Widgets)
